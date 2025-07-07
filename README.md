@@ -1,6 +1,6 @@
 # Research-Net: Community Detection in Academic Papers
 
-A scalable big-data framework for uncovering thematic communities in large-scale scholarly graphs. By combining distributed graph construction, semantic‐embedding–based similarity, and weighted PageRank, ResearchGraph detects cohesive groups of research papers and highlights influential works across millions of records.
+A scalable big-data framework for uncovering thematic communities in large-scale scholarly graphs. By combining distributed graph construction, semantic-embedding–based similarity, and weighted PageRank, Research-Net detects cohesive groups of research papers and highlights influential works across millions of records.
 
 ---
 
@@ -56,8 +56,8 @@ A scalable big-data framework for uncovering thematic communities in large-scale
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-org/ResearchGraph.git
-   cd ResearchGraph
+   git clone https://github.com/your-org/Research-Net.git
+   cd Research-Net
    ```
 
 2. **Create a Python virtual environment**
@@ -80,16 +80,16 @@ A scalable big-data framework for uncovering thematic communities in large-scale
      matplotlib
    ```
 
-4. **Download Semantic Scholar embeddings**
+4. **Configure Semantic Scholar API**
 
-   * Obtain API access and set your `SEMANTIC_SCHOLAR_API_KEY` environment variable.
-   * Ensure you have access to precomputed paper embeddings (e.g., SBERT vectors saved in Parquet).
+   * Obtain an API key and set `SEMANTIC_SCHOLAR_API_KEY` as an environment variable.
+   * Ensure access to precomputed paper embeddings (e.g., SBERT vectors in Parquet).
 
 ---
 
 ## Usage
 
-All three workflows are driven by `driver.ipynb`. Launch it with:
+Launch the main notebook to explore all workflows:
 
 ```bash
 jupyter notebook driver.ipynb
@@ -102,7 +102,7 @@ from keyword_search_module import initialize_spark
 spark, sc = initialize_spark(driver_memory="6g", shuffle_partitions=32)
 ```
 
-### 2. Distribute Modules to Executors
+### 2. Distribute Modules
 
 ```python
 sc.addPyFile("modules/keyword_search_module.py")
@@ -145,7 +145,7 @@ sc.setCheckpointDir(f"{pidm.PROJECT_ROOT}/checkpoints")
   build_id_graph_widget(spark, sc)
   ```
 
-* **Publication–Year Search**
+* **Publication-Year Search**
 
   ```python
   from publication_search_module import build_publication_graph_widget
@@ -166,10 +166,10 @@ sc.setCheckpointDir(f"{pidm.PROJECT_ROOT}/checkpoints")
 
 ---
 
-> 🔧 *Need help or want to contribute?*
+> *Need help or want to contribute?*
 >
 > * Open an issue or pull request
-> * Check the `modules/` folder for detailed docstrings and unit tests
-> * Join the conversation in Discussions
+> * Check `modules/` for detailed docstrings and unit tests
+> * Join the discussion in Issues or Discussions
 
 ---
